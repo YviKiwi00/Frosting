@@ -1646,7 +1646,7 @@ class Frosting(nn.Module):
         if self.project_gaussians_on_base_mesh:
             scales, quaternions = self.project_gaussians_on_mesh()
         
-        rendered_image, radii = rasterizer(
+        rendered_image, radii, _, _, _ = rasterizer(
             means3D = positions,
             means2D = means2D,
             shs = shs,
