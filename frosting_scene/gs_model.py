@@ -164,7 +164,7 @@ class GaussianSplattingWrapper:
                 output_path,
                 "point_cloud",
                 "iteration_" + str(iteration_to_load),
-                "point_cloud.ply"
+                "point_cloud_seg_gd.ply"
                 )
             )
         
