@@ -11,7 +11,11 @@ if __name__ == "__main__":
     # Data
     parser.add_argument('-s', '--scene_path',
                         type=str, 
-                        help='(Required) path to the scene data to use.')  
+                        help='(Required) path to the scene data to use.')
+
+    parser.add_argument('--ply_name',
+                        type=str,
+                        required=True)
     
     # Vanilla 3DGS optimization at beginning
     parser.add_argument('--gs_output_dir', type=str, default=None,
@@ -173,6 +177,7 @@ if __name__ == "__main__":
             -r {args.regularization_type} \
             -l {args.surface_level} \
             -v {args.n_vertices_in_mesh} \
+            --ply_name {args.ply_name} \
             --poisson_depth {args.poisson_depth} \
             --cleaning_quantile {args.cleaning_quantile} \
             --connected_components_vis_th {args.connected_components_vis_th} \

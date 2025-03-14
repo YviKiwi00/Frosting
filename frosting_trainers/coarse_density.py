@@ -237,6 +237,7 @@ def coarse_training_with_density_regularization(args):
             
     source_path = args.scene_path
     gs_checkpoint_path = args.checkpoint_path
+    ply_file_name = args.ply_name
     iteration_to_load = args.iteration_to_load    
     
     sdf_estimation_factor = args.estimation_factor
@@ -289,6 +290,7 @@ def coarse_training_with_density_regularization(args):
     nerfmodel = GaussianSplattingWrapper(
         source_path=source_path,
         output_path=gs_checkpoint_path,
+        ply_name=ply_file_name,
         iteration_to_load=iteration_to_load,
         load_gt_images=True,
         eval_split=use_eval_split,

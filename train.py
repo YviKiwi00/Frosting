@@ -27,6 +27,8 @@ if __name__ == "__main__":
     parser.add_argument('-i', '--iteration_to_load', 
                         type=int, default=7000, 
                         help='iteration to load.')
+    parser.add_argument('--ply_name',
+                        type=str)
     
     # Regularization for coarse SuGaR
     parser.add_argument('-r', '--regularization_type', type=str,
@@ -152,6 +154,7 @@ if __name__ == "__main__":
     # ----- Optimize coarse SuGaR -----
     coarse_args = AttrDict({
         'checkpoint_path': args.checkpoint_path,
+        'ply_name': args.ply_name,
         'scene_path': args.scene_path,
         'iteration_to_load': args.iteration_to_load,
         'output_dir': None,
@@ -175,6 +178,7 @@ if __name__ == "__main__":
     shell_base_args = AttrDict({
         'scene_path': args.scene_path,
         'checkpoint_path': args.checkpoint_path,
+        'ply_name': args.ply_name,
         'iteration_to_load': args.iteration_to_load,
         'coarse_model_path': coarse_sugar_path,
         'surface_level': args.surface_level,
@@ -200,6 +204,7 @@ if __name__ == "__main__":
     frosting_args = AttrDict({
         'scene_path': args.scene_path,
         'checkpoint_path': args.checkpoint_path,
+        'ply_name': args.ply_name,
         'sugar_path': coarse_sugar_path,
         'mesh_path': shell_base_path,
         'output_dir': None,

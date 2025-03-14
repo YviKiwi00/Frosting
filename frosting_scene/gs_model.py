@@ -74,6 +74,7 @@ class GaussianSplattingWrapper:
     def __init__(self, 
                  source_path: str,
                  output_path: str,
+                 ply_name: str,
                  iteration_to_load:int=30_000,
                  model_params: ModelParams=None,
                  pipeline_params: PipelineParams=None,
@@ -107,6 +108,7 @@ class GaussianSplattingWrapper:
         """
         self.source_path = source_path
         self.output_path = output_path
+        self.ply_name = ply_name
         self.loaded_iteration = iteration_to_load
         
         if os.path.basename(source_path) in ['chair', 'drums', 'ficus', 'hotdog', 'lego', 'materials', 'mic', 'ship']:
@@ -164,7 +166,7 @@ class GaussianSplattingWrapper:
                 output_path,
                 "point_cloud",
                 "iteration_" + str(iteration_to_load),
-                "point_cloud_seg_gd.ply"
+                ply_name
                 )
             )
         

@@ -126,6 +126,7 @@ def refined_training(args):
     # Data parameters
     source_path = args.scene_path
     gs_checkpoint_path = args.checkpoint_path
+    ply_file_name = args.ply_name
     sugar_model_path = args.sugar_path
     shell_base_to_bind_path = args.mesh_path
     mesh_name = shell_base_to_bind_path.split("/")[-1].split(".")[0]
@@ -265,6 +266,7 @@ def refined_training(args):
     nerfmodel = GaussianSplattingWrapper(
         source_path=source_path,
         output_path=gs_checkpoint_path,
+        ply_name=ply_file_name,
         iteration_to_load=iteration_to_load,
         load_gt_images=True,
         eval_split=use_eval_split,
