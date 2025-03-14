@@ -29,6 +29,8 @@ if __name__ == "__main__":
                         help='iteration to load.')
     parser.add_argument('--ply_name',
                         type=str)
+    parser.add_argument('--results_dir',
+                        type=str)
     
     # Regularization for coarse SuGaR
     parser.add_argument('-r', '--regularization_type', type=str,
@@ -157,7 +159,7 @@ if __name__ == "__main__":
         'ply_name': args.ply_name,
         'scene_path': args.scene_path,
         'iteration_to_load': args.iteration_to_load,
-        'output_dir': None,
+        'output_dir': args.results_dir,
         'eval': args.eval,
         'estimation_factor': 0.2,
         'normal_factor': 0.2,
@@ -187,7 +189,7 @@ if __name__ == "__main__":
         'cleaning_quantile': args.cleaning_quantile,
         'connected_components_vis_th': args.connected_components_vis_th,
         'project_mesh_on_surface_points': args.project_mesh_on_surface_points,
-        'mesh_output_dir': None,
+        'mesh_output_dir': args.results_dir,
         'bboxmin': args.bboxmin,
         'bboxmax': args.bboxmax,
         'center_bbox': args.center_bbox,
@@ -207,7 +209,7 @@ if __name__ == "__main__":
         'ply_name': args.ply_name,
         'sugar_path': coarse_sugar_path,
         'mesh_path': shell_base_path,
-        'output_dir': None,
+        'output_dir': args.results_dir,
         'iteration_to_load': args.iteration_to_load,
         'learn_shell': args.learn_shell,
         'use_occlusion_culling': args.use_occlusion_culling,

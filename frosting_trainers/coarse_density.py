@@ -234,6 +234,9 @@ def coarse_training_with_density_regularization(args):
             args.output_dir = os.path.join("./output/coarse", args.scene_path.split("/")[-1])
         else:
             args.output_dir = os.path.join("./output/coarse", args.scene_path.split("/")[-2])
+    else:
+        args.output_dir = os.path.join(args.output_dir, "coarse")
+    os.makedirs(args.output_dir, exist_ok=True)
             
     source_path = args.scene_path
     gs_checkpoint_path = args.checkpoint_path

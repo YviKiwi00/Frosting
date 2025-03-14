@@ -100,6 +100,9 @@ def refined_training(args):
             args.output_dir = os.path.join("./output/refined_frosting", args.scene_path.split("/")[-1])
         else:
             args.output_dir = os.path.join("./output/refined_frosting", args.scene_path.split("/")[-2])
+    else:
+        args.output_dir = os.path.join(args.output_dir, "refined_frosting")
+    os.makedirs(args.output_dir, exist_ok=True)
             
     # Bounding box
     if (args.bboxmin is None) or (args.bboxmin == 'None'):

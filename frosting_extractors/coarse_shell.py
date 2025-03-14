@@ -114,6 +114,8 @@ def extract_shell_base_from_coarse_sugar(args):
             args.mesh_output_dir = os.path.join("./output/coarse_shell", args.scene_path.split("/")[-1])
         else:
             args.mesh_output_dir = os.path.join("./output/coarse_shell", args.scene_path.split("/")[-2])
+    else:
+        args.output_dir = os.path.join(args.output_dir, "coarse_shell")
     mesh_output_dir = args.mesh_output_dir
     os.makedirs(mesh_output_dir, exist_ok=True)
             
