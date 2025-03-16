@@ -21,9 +21,11 @@ if __name__ == "__main__":
     parser.add_argument('--gs_output_dir', type=str, default=None,
                         help='(Optional) If None, will automatically train a vanilla Gaussian Splatting model at the beginning of the training. '
                         'Else, skips the vanilla Gaussian Splatting optimization and use the checkpoint in the provided directory.')
-
     parser.add_argument('--results_dir',
                         type=str)
+    parser.add_argument('-i', '--iteration_to_load',
+                        type=int, default=7000,
+                        help='iteration to load.')
     
     # Regularization for coarse SuGaR
     parser.add_argument('-r', '--regularization_type', type=str,
@@ -181,6 +183,7 @@ if __name__ == "__main__":
             -l {args.surface_level} \
             -v {args.n_vertices_in_mesh} \
             --ply_name {args.ply_name} \
+            --iteration_to_load {args.iteration_to_load} \
             --results_dir {args.results_dir} \
             --poisson_depth {args.poisson_depth} \
             --cleaning_quantile {args.cleaning_quantile} \
