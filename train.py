@@ -1,4 +1,6 @@
 import argparse
+import torch
+
 from frosting_utils.general_utils import str2bool
 from frosting_trainers.coarse_density import coarse_training_with_density_regularization
 from frosting_trainers.coarse_sdf import coarse_training_with_sdf_regularization
@@ -241,4 +243,6 @@ if __name__ == "__main__":
         'white_background': args.white_background,
     })
     frosting_path = refined_training(frosting_args)
+
+    torch.cuda.empty_cache()
         
