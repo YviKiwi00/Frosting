@@ -1,6 +1,6 @@
+import numpy as np
 import os
 import argparse
-import numpy as np
 from frosting_utils.general_utils import str2bool
 
 
