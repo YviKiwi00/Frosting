@@ -590,12 +590,8 @@ def refined_training(args):
     if export_ply_at_the_end:
         # =====Build path=====
         CONSOLE.print("\nExporting ply file with refined Gaussians...")
-        tmp_list = model_path.split(os.sep)
-        tmp_list[-4] = 'refined_frosting_ply'
-        tmp_list.pop(-1)
-        tmp_list[-1] = tmp_list[-1] + '.ply'
-        refined_ply_save_dir = os.path.join(*tmp_list[:-1])
-        refined_ply_save_path = os.path.join(*tmp_list)
+        refined_ply_save_dir = os.path.join(args.output_dir, "refined_frosting_ply")
+        refined_ply_save_path = os.path.join(refined_ply_save_dir, "refined_frosting_ply.ply")
         os.makedirs(refined_ply_save_dir, exist_ok=True)
         
         # Export and save ply
@@ -605,12 +601,8 @@ def refined_training(args):
         
     if export_obj_at_the_end:
         # =====Build path=====
-        tmp_list = model_path.split(os.sep)
-        tmp_list[-4] = 'refined_frosting_base_mesh'
-        tmp_list.pop(-1)
-        tmp_list[-1] = tmp_list[-1] + '.obj'
-        refined_obj_save_dir = os.path.join(*tmp_list[:-1])
-        refined_obj_save_path = os.path.join(*tmp_list)
+        refined_obj_save_dir = os.path.join(args.output_dir, "refined_frosting_base_mesh")
+        refined_obj_save_path = os.path.join(refined_obj_save_dir, "refined_frosting_base_mesh.obj")
         os.makedirs(refined_obj_save_dir, exist_ok=True)
         
         # Export and save mesh
