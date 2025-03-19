@@ -17,6 +17,8 @@ class AttrDict(dict):
 
 
 if __name__ == "__main__":
+    torch.cuda.empty_cache()
+
     # ----- Parser -----
     parser = argparse.ArgumentParser(description='Script to optimize a full Frosting model.')
     
@@ -244,6 +246,4 @@ if __name__ == "__main__":
         'white_background': args.white_background,
     })
     frosting_path = refined_training(frosting_args)
-
-    torch.cuda.empty_cache()
         
